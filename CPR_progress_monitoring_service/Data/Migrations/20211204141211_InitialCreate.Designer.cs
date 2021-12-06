@@ -4,14 +4,16 @@ using CPR_progress_monitoring_service.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CPR_progress_monitoring_service.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211204141211_InitialCreate")]
+    partial class InitialCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -67,9 +69,6 @@ namespace CPR_progress_monitoring_service.Data.Migrations
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");
 
-                    b.Property<int?>("UserGroupGroupID")
-                        .HasColumnType("int");
-
                     b.Property<string>("UserName")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
@@ -84,59 +83,7 @@ namespace CPR_progress_monitoring_service.Data.Migrations
                         .HasDatabaseName("UserNameIndex")
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
-                    b.HasIndex("UserGroupGroupID");
-
                     b.ToTable("AspNetUsers");
-                });
-
-            modelBuilder.Entity("CPR_progress_monitoring_service.Models.Measurement", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<double>("AccelerometerValue")
-                        .HasColumnType("float");
-
-                    b.Property<string>("ApplicationUserId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("DayAttemptNumber")
-                        .HasColumnType("int");
-
-                    b.Property<long>("Timestamp")
-                        .HasColumnType("bigint");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ApplicationUserId");
-
-                    b.ToTable("Measurements");
-                });
-
-            modelBuilder.Entity("CPR_progress_monitoring_service.Models.UserGroup", b =>
-                {
-                    b.Property<int>("GroupID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("GroupName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("GroupSupervisorID")
-                        .HasColumnType("int");
-
-                    b.HasKey("GroupID");
-
-                    b.ToTable("UserGroups");
                 });
 
             modelBuilder.Entity("IdentityServer4.EntityFramework.Entities.DeviceFlowCodes", b =>
@@ -377,26 +324,6 @@ namespace CPR_progress_monitoring_service.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("CPR_progress_monitoring_service.Models.ApplicationUser", b =>
-                {
-                    b.HasOne("CPR_progress_monitoring_service.Models.UserGroup", "UserGroup")
-                        .WithMany("ApplicationUsers")
-                        .HasForeignKey("UserGroupGroupID")
-                        .OnDelete(DeleteBehavior.NoAction);
-
-                    b.Navigation("UserGroup");
-                });
-
-            modelBuilder.Entity("CPR_progress_monitoring_service.Models.Measurement", b =>
-                {
-                    b.HasOne("CPR_progress_monitoring_service.Models.ApplicationUser", "ApplicationUser")
-                        .WithMany("Measurements")
-                        .HasForeignKey("ApplicationUserId")
-                        .OnDelete(DeleteBehavior.NoAction);
-
-                    b.Navigation("ApplicationUser");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -446,16 +373,6 @@ namespace CPR_progress_monitoring_service.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("CPR_progress_monitoring_service.Models.ApplicationUser", b =>
-                {
-                    b.Navigation("Measurements");
-                });
-
-            modelBuilder.Entity("CPR_progress_monitoring_service.Models.UserGroup", b =>
-                {
-                    b.Navigation("ApplicationUsers");
                 });
 #pragma warning restore 612, 618
         }

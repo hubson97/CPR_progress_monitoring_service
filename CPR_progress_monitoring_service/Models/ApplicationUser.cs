@@ -8,5 +8,8 @@ namespace CPR_progress_monitoring_service.Models
 {
     public class ApplicationUser : IdentityUser
     {
+        public ICollection<Measurement> Measurements { get; set; }
+        public UserGroup UserGroup { get; set; }
+
     }
 }
