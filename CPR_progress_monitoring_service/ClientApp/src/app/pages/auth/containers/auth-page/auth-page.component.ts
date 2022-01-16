@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 
 import { AuthService } from '../../services';
 import { routes } from '../../../../consts';
+import { Login } from '../../models';
+import { first } from 'rxjs';
 
 @Component({
   selector: 'app-auth-page',
@@ -14,18 +16,39 @@ export class AuthPageComponent {
   public routers: typeof routes = routes;
 
   constructor(
-    private service: AuthService,
+    private authService: AuthService,
     private router: Router
   ) { }
 
-  public sendLoginForm(): void {
-    this.service.login();
+  public sendLoginForm(model:Login): void {
+  
+    console.log(model.email + ":::" + model.password);
 
-    this.router.navigate([this.routers.DASHBOARD]).then();
+    this.authService.login(model)
+      .pipe(first())
+      .subscribe(
+        data => {
+            this.router.navigate([this.routers.DASHBOARD]);//.then();
+          //if (data.body.isAuthenticated)
+          //else
+          //  alert('Error: ');
+        },
+        error => {
+          alert('Error: ' + error.body);
+          
+        }
+    );
+
+    console.log('finished');
+
+    //if (this.authService.login(model))
+    //  this.router.navigate([this.routers.DASHBOARD]).then();
+    //else
+    //  console.log("nie udalo sie zalogowac!");
   }
 
   public sendSignForm(): void {
-    this.service.sign();
+    this.authService.sign();
 
     this.router.navigate([this.routers.DASHBOARD]).then();
   }

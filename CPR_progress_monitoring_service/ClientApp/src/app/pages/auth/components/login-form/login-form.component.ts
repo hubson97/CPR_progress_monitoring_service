@@ -1,5 +1,9 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Console } from 'node:console';
+
+import { Login } from '../../models';
+
 
 @Component({
   selector: 'app-login-form',
@@ -7,21 +11,26 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./login-form.component.scss']
 })
 export class LoginFormComponent implements OnInit {
-  @Output() sendLoginForm = new EventEmitter<void>();
-  public form: FormGroup;
-  public email = 'admin@cprservice.com';
-  public password = 'admin';
+  @Output() sendLoginForm = new EventEmitter<Login>();
+  public loginForm: FormGroup;
+  public emailInit = 'instruktor@cprservice.com';
+  public passwordInit = 'zaq1@WSX';
 
   public ngOnInit(): void {
-    this.form = new FormGroup({
-      email: new FormControl(this.email, [Validators.required, Validators.email]),
-      password: new FormControl(this.password, [Validators.required])
+    this.loginForm = new FormGroup({
+      email: new FormControl(this.emailInit, [Validators.required, Validators.email]),
+      password: new FormControl(this.passwordInit, [Validators.required])
     });
   }
 
   public login(): void {
-    if (this.form.valid) {
-      this.sendLoginForm.emit();
+    if (this.loginForm.valid) {
+      let model: Login = {
+        email: this.loginForm.controls["email"].value,
+        password: this.loginForm.controls["password"].value
+      };
+
+      this.sendLoginForm.emit(model);
     }
   }
 }
