@@ -1,4 +1,27 @@
 <mat-list>
+  <mat-list-item *ngIf="isAdminRole" routerLink="{{routes.ADMIN_HOME}}" routerLinkActive="active">
+    <mat-icon>home</mat-icon> ADMIN HOME
+  </mat-list-item>
+  <mat-list-item *ngIf="isAdminRole" routerLink="{{routes.ADMIN_USERS}}" routerLinkActive="active">
+    <mat-icon>account_circle</mat-icon> ADMIN USERS
+  </mat-list-item>
+
+
+  <mat-list-item *ngIf="isInstructorRole" routerLink="{{routes.INSTRUCTOR_HOME}}" routerLinkActive="active">
+    <mat-icon>home</mat-icon> INSTRUCTOR HOME
+  </mat-list-item>
+  <mat-list-item *ngIf="isInstructorRole" routerLink="{{routes.INSTRUCTOR_USERS}}" routerLinkActive="active">
+    <mat-icon>account_circle</mat-icon> INSTRUCTOR USERS
+  </mat-list-item>
+
+
+  <mat-list-item *ngIf="isStudentRole" routerLink="{{routes.STUDENT_HOME}}" routerLinkActive="active">
+    <mat-icon>home</mat-icon> STUDENT HOME
+  </mat-list-item>
+
+
+  <br /><br /><br />
+
   <mat-list-item routerLink="{{routes.DASHBOARD}}" routerLinkActive="active">
     <mat-icon>home</mat-icon> Dashboard
   </mat-list-item>

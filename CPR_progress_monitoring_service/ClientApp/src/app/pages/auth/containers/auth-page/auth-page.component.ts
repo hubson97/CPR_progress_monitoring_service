@@ -34,7 +34,7 @@ export class AuthPageComponent {
           //  alert('Error: ');
         },
         error => {
-          alert('Error: ' + error.body);
+          alert('Error2: ' + error.body);
           
         }
     );

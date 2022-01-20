@@ -34,5 +34,21 @@ export class DashboardPageComponent {
     this.supportRequestData$ = this.service.loadSupportRequestData();
     this.visitsChartData$ = this.service.loadVisitsChartData();
     this.projectsStatsData$ = this.service.loadProjectsStatsData();
+
+    
   }
+
+  ngOnInit(){
+
+
+    //this.service.getSomethingTest()
+    //      .subscribe(
+    //      (resp)=>{console.log(resp)}
+    //      //,(error)=>{console.log('errorA:' + error)}
+    //    );
+
+
+  }
+
+
 }

@@ -2,9 +2,30 @@ import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
 import { NgModule } from '@angular/core';
 import { DashboardPageComponent } from './pages/dashboard/containers';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
-import {AuthGuard} from './pages/auth/guards';
+import { AuthGuard, RoleGuard } from './pages/auth/guards';
+import { Forbidden403Component } from './pages/errors';
+
+import { roles } from './consts';
 
 const routes: Routes = [
+  {
+    path: 'admin',
+    canActivate: [AuthGuard, RoleGuard],
+    data:{ role: roles.ADMIN},
+    loadChildren: () => import('./pages/admin/admin.module').then(m => m.AdminModule)
+  },
+  {
+    path: 'instructor',
+    canActivate: [AuthGuard, RoleGuard],
+    data:{ role: roles.INSTRUCTOR},
+    loadChildren: () => import('./pages/instructor/instructor.module').then(m => m.InstructorModule)
+  },
+  {
+    path: 'student',
+    canActivate: [AuthGuard, RoleGuard],
+    data:{ role: roles.STUDENT},
+    loadChildren: () => import('./pages/student/student.module').then(m => m.StudentModule)
+  },
   {
     path: 'dashboard',
     pathMatch: 'full',
@@ -20,7 +41,7 @@ const routes: Routes = [
   {
     path: 'tables',
     pathMatch: 'full',
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuard, RoleGuard],
     loadChildren: () => import('./pages/tables/tables.module').then(m => m.TablesModule)
   },
   {
@@ -33,6 +54,10 @@ const routes: Routes = [
     path: 'ui',
     canActivate: [AuthGuard],
     loadChildren: () => import('./pages/ui-elements/ui-elements.module').then(m => m.UiElementsModule)
+  },
+  {
+    path: '403',
+    component: Forbidden403Component
   },
   {
     path: '404',

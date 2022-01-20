@@ -1,5 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
+import { catchError, retry, map } from 'rxjs/operators';
+
+import { HttpClient, HttpErrorResponse, HttpResponse, HttpHeaders } from '@angular/common/http';
+
 
 import {
   DailyLineChartData,
@@ -10,12 +14,44 @@ import {
   SupportRequestData,
   VisitsChartData
 } from '../models';
-
+import { routes } from '../../../consts';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DashboardService {
+  public routers: typeof routes = routes;
+  serverURL = this.routers.SERVERURL;
+  resData: any = null;
+
+  constructor(private httpClient: HttpClient) { }
+
+  public getSomethingTest(): Observable<HttpResponse<any>> {
+
+    //let token = localStorage.getItem('token');
+    //console.log('token:' + token);
+    //console.log(localStorage.getItem('authData'));
+
+
+    // var httpOptions = {
+    //  headers: new HttpHeaders({
+    //    //'Content-Type': 'application/json',
+    //    Authorization: `Bearer ${token}`
+    //  })
+    //  //,observe: 'response' as const,
+    //};
+
+    //let httpOptions = {
+    //  headers: new HttpHeaders().set('Authorization', `Bearer ${token}`)
+    //}
+
+    //httpOptions.headers = httpOptions.headers.set('Authorization',localStorage.getItem('token'));
+
+    //return this.httpClient.post<any>(this.serverURL + '/api/secured/testadminpost', null);
+    return null;
+  }
+
+
   public loadDailyLineChartData(): Observable<DailyLineChartData> {
     return of({
       dailyData: {
@@ -102,7 +138,7 @@ export class DashboardService {
   }
 
   public loadSupportRequestData(): Observable<SupportRequestData[]> {
-    return of ([{
+    return of([{
       name: 'Mark Otto',
       email: 'ottoto@wxample.com',
       product: 'ON the Road',
@@ -113,7 +149,7 @@ export class DashboardService {
     },
     {
       name: 'Jacob Thornton',
-        email: 'thornton@wxample.com',
+      email: 'thornton@wxample.com',
       product: 'HP Core i7',
       price: '$1 254.2',
       date: '4 Jun 2017',
@@ -122,7 +158,7 @@ export class DashboardService {
     },
     {
       name: 'Larry the Bird',
-        email: 'bird@wxample.com',
+      email: 'bird@wxample.com',
       product: 'Air Pro',
       price: '$1 570.0',
       date: '27 Aug 2017',
@@ -131,7 +167,7 @@ export class DashboardService {
     },
     {
       name: 'Joseph May',
-        email: 'josephmay@wxample.com',
+      email: 'josephmay@wxample.com',
       product: 'Version Control',
       price: '$5 224.5',
       date: '19 Feb 2018',
@@ -140,7 +176,7 @@ export class DashboardService {
     },
     {
       name: 'Peter Horadnia',
-        email: 'horadnia@wxample.com',
+      email: 'horadnia@wxample.com',
       product: 'Let\'s Dance',
       price: '$43 594.7',
       date: '1 Mar 2018',

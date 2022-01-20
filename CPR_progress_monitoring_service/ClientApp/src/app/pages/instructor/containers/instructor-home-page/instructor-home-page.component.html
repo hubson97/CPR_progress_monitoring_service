@@ -1,0 +1,11 @@
+<app-layout>
+
+  <mat-toolbar class="page-header" role="heading">
+    <h1>Instructor home</h1>
+  </mat-toolbar>
+
+  <app-daily-line-chart [dailyLineChartData]="dailyLineChartData$ | async"></app-daily-line-chart>
+
+
+  <app-footer></app-footer>
+</app-layout>

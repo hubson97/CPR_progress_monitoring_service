@@ -3,6 +3,6 @@ export interface AuthResponse {
     isAuthenticated: string;
     username: string;
     email: string;
-    Roles: [],
+    roles: [],
     token: string;
 }

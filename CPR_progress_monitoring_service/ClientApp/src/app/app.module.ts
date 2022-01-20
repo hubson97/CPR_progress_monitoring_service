@@ -7,19 +7,24 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
 
-import { AppComponent } from './app.component';
+import { AuthModule } from './pages/auth/auth.module';
+import { DashboardModule } from './pages/dashboard/dashboard.module';
+import { Forbidden403Component } from './pages/errors';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { SharedModule } from './shared/shared.module';
 import { AppRoutingModule } from './app-routing.module';
-import { DashboardModule } from './pages/dashboard/dashboard.module';
-import { NotFoundComponent } from './pages/not-found/not-found.component';
-import { AuthModule } from './pages/auth/auth.module';
 import { NgxEchartsModule } from 'ngx-echarts';
 import { ReactiveFormsModule } from '@angular/forms';
+import { httpInterceptorProviders } from './pages/auth/services';
+import { AppComponent } from './app.component';
+
+//import { AdminModule } from './pages/admin/admin.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    Forbidden403Component,
   ],
   imports: [
     BrowserModule,
@@ -36,9 +41,13 @@ import { ReactiveFormsModule } from '@angular/forms';
       echarts: () => import('echarts')
     }),
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+
+    //AdminModule
   ],
-  providers: [],
+  providers: [
+    httpInterceptorProviders
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
