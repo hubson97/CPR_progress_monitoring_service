@@ -3,14 +3,10 @@ using CPR_progress_monitoring_service.Interfaces;
 using CPR_progress_monitoring_service.Models;
 using CPR_progress_monitoring_service.Services;
 using CPR_progress_monitoring_service.Settings;
-using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI;
-using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -43,13 +39,7 @@ namespace CPR_progress_monitoring_service
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection"),
-                    b=>b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName)));
-
-            //services.AddDatabaseDeveloperPageExceptionFilter();
-
-
-            //services.AddIdentityServer()
-            //    .AddApiAuthorization<ApplicationUser, ApplicationDbContext>();
+                    b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName)));
 
             services.AddAuthentication(opt =>
                 {
@@ -73,11 +63,7 @@ namespace CPR_progress_monitoring_service
                         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JWT:key"]))
                     };
                 });
-            //.AddIdentityServerJwt();
-
-
             services.AddControllersWithViews();
-            //services.AddControllers();
 
             services.AddRazorPages();
             // In production, the Angular files will be served from this directory

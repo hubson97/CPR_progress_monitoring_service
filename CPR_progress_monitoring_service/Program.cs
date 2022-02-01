@@ -23,7 +23,7 @@ namespace CPR_progress_monitoring_service
             //using (var scope = host.Services.CreateScope())
             //{
             //    var services = scope.ServiceProvider;
-            //    var loggerFactory = services.GetRequiredService<ILoggerFactory>();
+            //    //var loggerFactory = services.GetRequiredService<ILoggerFactory>(); 
             //    try
             //    {
             //        //Seed Default Users
@@ -33,8 +33,9 @@ namespace CPR_progress_monitoring_service
             //    }
             //    catch (Exception ex)
             //    {
-            //        var logger = loggerFactory.CreateLogger<Program>();
-            //        logger.LogError(ex, "An error occurred seeding the DB.");
+            //        //var logger = loggerFactory.CreateLogger<Program>();
+            //        //logger.LogError(ex, "An error occurred seeding the DB.");
+            //        Log.Error($"An error occurred seeding the DB: {ex}");
             //    }
             //}
 

@@ -39,8 +39,115 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\app\consts\roles.ts" />
+    <None Remove="ClientApp\src\app\pages\admin\components\index.ts" />
+    <None Remove="ClientApp\src\app\pages\admin\consts\index.ts" />
+    <None Remove="ClientApp\src\app\pages\admin\containers\index.ts" />
+    <None Remove="ClientApp\src\app\pages\admin\models\group-names-data.ts" />
+    <None Remove="ClientApp\src\app\pages\admin\models\index.ts" />
+    <None Remove="ClientApp\src\app\pages\admin\models\users-by-group-data.ts" />
+    <None Remove="ClientApp\src\app\pages\admin\models\users-logging-heatmap-chart-data.ts" />
+    <None Remove="ClientApp\src\app\pages\admin\services\index.ts" />
     <None Remove="ClientApp\src\app\pages\auth\models\authResponse.ts" />
     <None Remove="ClientApp\src\app\pages\auth\models\login.ts" />
+    <None Remove="ClientApp\src\app\pages\errors\index.ts" />
+    <None Remove="ClientApp\src\app\pages\instructor\components\index.ts" />
+    <None Remove="ClientApp\src\app\pages\instructor\containers\index.ts" />
+    <None Remove="ClientApp\src\app\pages\instructor\models\chest-compression-quality-chart-data.ts" />
+    <None Remove="ClientApp\src\app\pages\instructor\models\compression-depth-chart-data.ts" />
+    <None Remove="ClientApp\src\app\pages\instructor\models\group-names-data.ts" />
+    <None Remove="ClientApp\src\app\pages\instructor\models\index.ts" />
+    <None Remove="ClientApp\src\app\pages\instructor\models\quality-dispersion-chart-data.ts" />
+    <None Remove="ClientApp\src\app\pages\instructor\models\users-by-group-data.ts" />
+    <None Remove="ClientApp\src\app\pages\instructor\models\users-exercise-freq-heatmap-chart-data.ts" />
+    <None Remove="ClientApp\src\app\pages\instructor\services\index.ts" />
+    <None Remove="ClientApp\src\app\pages\settings\containers\index.ts" />
+    <None Remove="ClientApp\src\app\pages\student\components\index.ts" />
+    <None Remove="ClientApp\src\app\pages\student\consts\index.ts" />
+    <None Remove="ClientApp\src\app\pages\student\containers\index.ts" />
+    <None Remove="ClientApp\src\app\pages\student\models\chest-compression-quality-chart-data.ts" />
+    <None Remove="ClientApp\src\app\pages\student\models\compression-depth-chart-data.ts" />
+    <None Remove="ClientApp\src\app\pages\student\models\index.ts" />
+    <None Remove="ClientApp\src\app\pages\student\services\index.ts" />
+    <None Remove="ClientApp\tsconfig.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Remove="ClientApp\src\app\pages\instructor\components\daily-line-chart\daily-line-chart.component.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\app\pages\instructor\consts\custom-tooltip.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\app\pages\instructor\consts\index.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\app\pages\instructor\models\daily-line-chart-data.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\app\pages\settings\settings-routing.module.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\app\pages\settings\settings.module.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\app\pages\student\services\student.service.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="ClientApp\tsconfig.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Update="ClientApp\src\app\pages\admin\consts\index.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Update="ClientApp\src\app\pages\admin\containers\index.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Update="ClientApp\src\app\pages\admin\models\group-names-data.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Update="ClientApp\src\app\pages\admin\models\index.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Update="ClientApp\src\app\pages\admin\models\users-by-group-data.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Update="ClientApp\src\app\pages\admin\services\index.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Update="ClientApp\src\app\pages\instructor\components\index.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Update="ClientApp\src\app\pages\instructor\containers\index.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Update="ClientApp\src\app\pages\instructor\models\index.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Update="ClientApp\src\app\pages\instructor\models\users-by-group-data.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Update="ClientApp\src\app\pages\instructor\services\index.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Update="ClientApp\src\app\pages\student\components\index.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Update="ClientApp\src\app\pages\student\consts\index.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Update="ClientApp\src\app\pages\student\containers\index.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Update="ClientApp\src\app\pages\student\models\chest-compression-quality-chart-data.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Update="ClientApp\src\app\pages\student\models\compression-depth-chart-data.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Update="ClientApp\src\app\pages\student\models\index.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Update="ClientApp\src\app\pages\student\services\index.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ClientApp\src\app\pages\settings\components\" />
+    <Folder Include="ClientApp\src\app\pages\settings\consts\" />
+    <Folder Include="ClientApp\src\app\pages\settings\models\" />
+    <Folder Include="ClientApp\src\app\pages\settings\services\" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
