@@ -38,18 +38,6 @@ const routes: Routes = [
     component: DashboardPageComponent
   },
   {
-    path: 'typography',
-    pathMatch: 'full',
-    canActivate: [AuthGuard],
-    loadChildren: () => import('./pages/typography/typography.module').then(m => m.TypographyModule)
-  },
-  {
-    path: 'notification',
-    pathMatch: 'full',
-    canActivate: [AuthGuard],
-    loadChildren: () => import('./pages/notification/notification.module').then(m => m.NotificationModule)
-  },
-  {
     path: '403',
     component: Forbidden403Component
   },

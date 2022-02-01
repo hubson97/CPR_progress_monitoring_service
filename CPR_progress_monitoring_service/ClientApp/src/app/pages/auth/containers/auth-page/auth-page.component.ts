@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AuthService } from '../../services';
-import { routes } from '../../../../consts';
+import { routes, roles } from '../../../../consts';
 import { Login } from '../../models';
 import { first } from 'rxjs';
 
@@ -14,11 +14,14 @@ import { first } from 'rxjs';
 export class AuthPageComponent {
   public todayDate: Date = new Date();
   public routers: typeof routes = routes;
+  public roles: typeof roles = roles;
 
   constructor(
     private authService: AuthService,
     private router: Router
-  ) { }
+  ) {
+    this.roles = roles;
+  }
 
   public sendLoginForm(model:Login): void {
   
@@ -28,10 +31,15 @@ export class AuthPageComponent {
       .pipe(first())
       .subscribe(
         data => {
-            this.router.navigate([this.routers.DASHBOARD]);//.then();
-          //if (data.body.isAuthenticated)
-          //else
-          //  alert('Error: ');
+          if (data.body.roles.includes('administrator' as never)) {
+            this.router.navigate([this.routers.ADMIN_HOME]);
+          }
+          else if (data.body.roles.includes(roles.INSTRUCTOR as never)) {
+            this.router.navigate([this.routers.INSTRUCTOR_HOME]);
+          }
+          else if (data.body.roles.includes(roles.STUDENT as never)) {
+            this.router.navigate([this.routers.STUDENT_HOME]);
+          }
         },
         error => {
           alert('Error2: ' + error.body);
