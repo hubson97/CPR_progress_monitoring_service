@@ -18,6 +18,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { httpInterceptorProviders } from './pages/auth/services';
 import { AppComponent } from './app.component';
 
+import { MaterialModule } from './material/material.module';
+
 //import { AdminModule } from './pages/admin/admin.module';
 
 @NgModule({
@@ -42,6 +44,7 @@ import { AppComponent } from './app.component';
     }),
     ReactiveFormsModule,
     HttpClientModule,
+    MaterialModule,
 
     //AdminModule
   ],

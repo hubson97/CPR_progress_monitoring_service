@@ -1,0 +1,53 @@
+<app-layout>
+
+  <!--<mat-toolbar class="page-header" role="heading">
+    <h1>Instructor statistics</h1>
+  </mat-toolbar>-->
+
+  <!--<div class="options-wrapper">
+    <div class="option">
+      <mat-form-field appearance="fill">
+        <mat-label>Group names</mat-label>
+        <mat-select>
+          <mat-option>ALL</mat-option>
+          <mat-option *ngFor="let group of groupNames" [value]="group.name">
+            {{group.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="option">
+
+    </div>
+
+  </div>-->
+
+<div class="charts-content">
+
+  <div class="charts-content__charts-wrapper">
+    <mat-card class="charts-content__chart-item">
+      <mat-card-title><p>Quality increase</p></mat-card-title>
+      <app-chest-compression-quality-chart [chestCompressQualityChartData]="chestCompressQualityChartData$ | async"></app-chest-compression-quality-chart>
+    </mat-card>
+    <mat-card class="charts-content__chart-item">
+      <mat-card-title><p>Compression depth</p></mat-card-title>
+      <app-compression-depth-chart [compressionDepthChartData]="compressionDepthChartData$ | async"></app-compression-depth-chart>
+    </mat-card>
+  </div>
+
+  <div class="charts-content__charts-wrapper">
+    <mat-card class="charts-content__chart-item">
+      <mat-card-title><p>Quality dispersion</p></mat-card-title>
+      <app-quality-dispersion-chart [qualityDispersionChartData]="qualityDispersionChartData$ | async"></app-quality-dispersion-chart>
+    </mat-card>
+    <mat-card class="charts-content__chart-item">
+      <mat-card-title><p>Average compression frequency</p></mat-card-title>
+      <app-avg-compression-freq-chart ></app-avg-compression-freq-chart>
+    </mat-card>
+  </div>
+
+
+</div>
+
+  <app-footer></app-footer>
+</app-layout>

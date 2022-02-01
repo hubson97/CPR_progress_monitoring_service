@@ -1,0 +1,128 @@
+@import 'src/app/styles/colors';
+@import 'src/app/styles/font';
+
+/*button {
+  background-color: #eee;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  color: black;
+  font-size: 1.2rem;
+  padding: 1rem;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+button:hover {
+  background-color: black;
+  color: white;
+}
+
+button:disabled {
+  background-color: #eee;
+  color: #aaa;
+  cursor: auto;
+}
+
+input[type="text"] {
+  box-sizing: border-box;
+  width: 100%;
+  padding: .5rem;
+}
+*/
+
+
+.container {
+  width: 60%;
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 50px;
+}
+
+.container * {
+  box-sizing: border-box;
+}
+
+.flex-outer,
+.flex-inner {
+  list-style-type: none;
+  padding: 0;
+}
+
+.flex-outer {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.flex-outer li,
+.flex-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.flex-inner {
+  padding: 0 8px;
+  justify-content: space-between;
+}
+
+.flex-outer > li:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.flex-outer li label,
+.flex-outer li p {
+  padding: 8px;
+  font-weight: 300;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+
+.flex-outer > li > label,
+.flex-outer li p {
+  flex: 1 0 120px;
+  max-width: 220px;
+}
+
+.flex-outer > li > label + *,
+.flex-inner {
+  flex: 1 0 220px;
+}
+
+.flex-outer li p {
+  margin: 0;
+}
+
+.flex-outer li input:not([type='checkbox']),
+.flex-outer li textarea,
+.flex-outer li select,
+.flex-outer li option,
+{
+  padding: 15px;
+  border:  solid ;
+}
+
+.flex-outer li button {
+  margin-left: auto;
+  padding: 8px 16px;
+  border: none;
+  background: $blue; //#333;
+  color: $white;//#f2f2f2;
+  /*text-transform: uppercase;*/
+  letter-spacing: .09em;
+  border-radius: 4px;
+}
+
+.flex-inner li {
+  width: 100px;
+}
+/*.container{
+    width: 50%;
+
+}*/
+
+/*.form-box{
+    display:flex;
+}
+*/

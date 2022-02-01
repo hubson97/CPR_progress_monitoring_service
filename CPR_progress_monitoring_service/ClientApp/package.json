@@ -24,6 +24,7 @@
     "apexcharts": "3.32.0",
     "echarts": "5.2.2",
     "font-awesome": "^4.7.0",
+    "moment": "^2.29.1",
     "ng-apexcharts": "1.6.0",
     "ngx-echarts": "8.0.1",
     "ngx-toastr": "14.2.1",

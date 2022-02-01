@@ -2,8 +2,8 @@ import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
 import { NgModule } from '@angular/core';
 import { DashboardPageComponent } from './pages/dashboard/containers';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
-import { AuthGuard, RoleGuard } from './pages/auth/guards';
 import { Forbidden403Component } from './pages/errors';
+import { AuthGuard, RoleGuard } from './pages/auth/guards';
 
 import { roles } from './consts';
 
@@ -27,6 +27,11 @@ const routes: Routes = [
     loadChildren: () => import('./pages/student/student.module').then(m => m.StudentModule)
   },
   {
+    path: 'settings',
+    canActivate: [AuthGuard],
+    loadChildren: () => import('./pages/settings/settings.module').then(m => m.SettingsModule)
+  },
+  {
     path: 'dashboard',
     pathMatch: 'full',
     canActivate: [AuthGuard],
@@ -39,21 +44,10 @@ const routes: Routes = [
     loadChildren: () => import('./pages/typography/typography.module').then(m => m.TypographyModule)
   },
   {
-    path: 'tables',
-    pathMatch: 'full',
-    canActivate: [AuthGuard, RoleGuard],
-    loadChildren: () => import('./pages/tables/tables.module').then(m => m.TablesModule)
-  },
-  {
     path: 'notification',
     pathMatch: 'full',
     canActivate: [AuthGuard],
     loadChildren: () => import('./pages/notification/notification.module').then(m => m.NotificationModule)
-  },
-  {
-    path: 'ui',
-    canActivate: [AuthGuard],
-    loadChildren: () => import('./pages/ui-elements/ui-elements.module').then(m => m.UiElementsModule)
   },
   {
     path: '403',

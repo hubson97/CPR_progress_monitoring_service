@@ -1,6 +1,10 @@
 <app-layout>
 
-  <h1>INSTRUCTOR USERS</h1>
+  <!--<mat-toolbar class="page-header" role="heading">-->
+    <!--<h1>Users</h1>-->
+  <!--</mat-toolbar>-->
+
+  <app-users-list-table [usersByGroupData]="usersByGroupData$ | async"  [groupsData]="groupsData$ | async" ></app-users-list-table>
 
 
   <app-footer></app-footer>

@@ -1,26 +1,25 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatTableModule } from '@angular/material/table';
 import { NgxEchartsModule } from 'ngx-echarts';
 import { TrendModule } from 'ngx-trend';
-import { MatCardModule } from '@angular/material/card';
-import { MatIconModule } from '@angular/material/icon';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatButtonModule } from '@angular/material/button';
-import { MatProgressBarModule } from '@angular/material/progress-bar';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatGridListModule } from '@angular/material/grid-list';
-import { MatSelectModule } from '@angular/material/select';
-import { MatInputModule } from '@angular/material/input';
-import { NgApexchartsModule } from 'ng-apexcharts';
-import { FormsModule } from '@angular/forms';
 
+import { NgApexchartsModule } from 'ng-apexcharts';
+//import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+
+import { MaterialModule } from '../../material/material.module';
 
 import { InstructorRoutingModule } from './instructor-routing.module';
 import { SharedModule } from '../../shared/shared.module';
 import { InstructorHomePageComponent, InstructorUsersPageComponent } from './containers';
-import { DailyLineChartComponent } from './components';
+import { DailyLineChartComponent, UsersListTableComponent } from './components';
 import { InstructorService } from './services';
+import { InstructorStatisticsPageComponent } from './containers/instructor-statistics-page/instructor-statistics-page.component';
+import { UsersExerciseFrequencyHeatmapChartComponent } from './components/users-exercise-frequency-heatmap-chart/users-exercise-frequency-heatmap-chart.component';
+import { ChestCompressionQualityChartComponent } from './components/chest-compression-quality-chart/chest-compression-quality-chart.component';
+import { QualityDispersionChartComponent } from './components/quality-dispersion-chart/quality-dispersion-chart.component';
+import { CompressionDepthChartComponent } from './components/compression-depth-chart/compression-depth-chart.component';
+import { AvgCompressionFreqChartComponent } from './components/avg-compression-freq-chart/avg-compression-freq-chart.component';
 
 
 
@@ -28,26 +27,37 @@ import { InstructorService } from './services';
   declarations: [
     InstructorHomePageComponent,
     InstructorUsersPageComponent,
-    DailyLineChartComponent
+    DailyLineChartComponent,
+    UsersListTableComponent,
+    InstructorStatisticsPageComponent,
+    UsersExerciseFrequencyHeatmapChartComponent,
+    ChestCompressionQualityChartComponent,
+    QualityDispersionChartComponent,
+    CompressionDepthChartComponent,
+    AvgCompressionFreqChartComponent
   ],
   imports: [
     CommonModule,
     InstructorRoutingModule,
     SharedModule,
-    MatTableModule,
-    NgxEchartsModule,
     TrendModule,
-    MatCardModule,
-    MatIconModule,
-    MatMenuModule,
-    MatButtonModule,
-    MatProgressBarModule,
-    MatToolbarModule,
-    MatGridListModule,
-    MatSelectModule,
-    MatInputModule,
+    NgxEchartsModule,
     NgApexchartsModule,
-    FormsModule
+    MaterialModule,
+
+    //FormsModule,
+    //MatTableModule,
+    //MatCardModule,
+    //MatIconModule,
+    //MatMenuModule,
+    //MatButtonModule,
+    //MatProgressBarModule,
+    //MatToolbarModule,
+    //MatGridListModule,
+    //MatSelectModule,
+    //MatInputModule,
+    //MatNativeDateModule,
+
   ],
   exports: [],
   providers: [

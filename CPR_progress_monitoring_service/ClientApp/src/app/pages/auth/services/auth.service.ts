@@ -22,15 +22,13 @@ export class AuthService {
 
 
 
-  public login(model: Login): Observable<HttpResponse<AuthResponse>> { //boolean
+  public login(model: Login): Observable<HttpResponse<AuthResponse>> {
 
     const httpOptions = {
       observe: 'response' as const,
     };
 
-
-
-    return this.httpClient.post<AuthResponse>(this.serverURL + '/api/user/token', model, httpOptions)//,{ responseType: 'json' })
+    return this.httpClient.post<AuthResponse>(this.serverURL + '/api/user/token', model, httpOptions)
       .pipe(map(resp => {
         if (resp.ok == true && resp.body.isAuthenticated) {
           localStorage.setItem('userAuthData', JSON.stringify(resp.body));

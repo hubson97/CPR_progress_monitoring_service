@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { InstructorUsersPageComponent, InstructorHomePageComponent } from './containers';
+import { InstructorUsersPageComponent, InstructorHomePageComponent, InstructorStatisticsPageComponent } from './containers';
 
 const routes: Routes = [
   {
@@ -9,12 +9,16 @@ const routes: Routes = [
     component: InstructorUsersPageComponent
   },
   {
-    path: '',
+    path: 'home',
     component: InstructorHomePageComponent
   },
   {
-    path: 'home',
-    redirectTo: ''
+    path: '',
+    redirectTo: 'home'
+  },
+  {
+    path: 'stats',
+    component: InstructorStatisticsPageComponent
   },
 ];
 

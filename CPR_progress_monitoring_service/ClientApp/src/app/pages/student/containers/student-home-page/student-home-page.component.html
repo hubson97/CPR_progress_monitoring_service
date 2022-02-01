@@ -1,7 +1,22 @@
 <app-layout>
 
-  <h1>STUDENT HOME</h1>
+  <div class="charts-content">
+
+    <div class="charts-content__charts-wrapper">
+      <mat-card class="charts-content__chart-item">
+        <mat-card-title><p>Compression depth</p></mat-card-title>
+        <!--<app-compression-depth-chart [compressionDepthChartData]="compressionDepthChartData$ | async"></app-compression-depth-chart>-->
+        <app-user-compression-depth-chart></app-user-compression-depth-chart>
+      </mat-card>
+      <mat-card class="charts-content__chart-item">
+        <mat-card-title><p>Quality increase</p></mat-card-title>
+        <!--<app-chest-compression-quality-chart [chestCompressQualityChartData]="chestCompressQualityChartData$ | async"></app-chest-compression-quality-chart>-->
+        <app-user-compression-quality-chart [chestCompressQualityChartData]="chestCompressQualityChartData$ | async"></app-user-compression-quality-chart>
+      </mat-card>
+    </div>
+
+  </div>
 
 
-  <app-footer></app-footer>
+    <app-footer></app-footer>
 </app-layout>

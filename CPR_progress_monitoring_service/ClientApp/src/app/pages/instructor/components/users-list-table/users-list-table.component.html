@@ -1,0 +1,89 @@
+
+<div class="container">
+
+  <mat-card>
+    <!--<div class="filter-container">
+      <mat-form-field appearance="outline">
+        <mat-label>Filter</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="filter" #input />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-select (selectionChange)="onGroupChange($event.value)">-->
+          <!-- [(ngModel)]="groupNames.name" (ngModelChange)="onGroupChange(groupNames.name)"          -->
+          <!--<mat-option value="">All</mat-option>
+          <mat-option [value]="group.name" *ngFor="let group of groupNames">{{group.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>-->
+
+    <mat-form-field appearance="fill">
+      <mat-label>Group names</mat-label>
+      <mat-select (selectionChange)="onGroupChange($event.value)">
+        <!-- [(ngModel)]="groupNames.name" (ngModelChange)="onGroupChange(groupNames.name)"          -->
+        <mat-option value="">All</mat-option>
+        <mat-option [value]="group.name" *ngFor="let group of groupNames">{{group.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+
+    <mat-form-field appearance="outline" class="filterField">
+      <mat-label>Filter</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="filter" #input />
+    </mat-form-field>
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+
+        <!--<ng-container *ngFor="let column of columns" [matColumnDef]="column.columnDef">
+      <th mat-header-cell *matHeaderCellDef>
+        {{column.header}}
+      </th>
+      <td mat-cell *matCellDef="let row">
+        {{column.cell(row)}}
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>-->
+
+      <ng-container matColumnDef="uid">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>No.</th>
+        <td mat-cell *matCellDef="let element">{{element.uid}}</td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>NAME</th>
+        <td mat-cell *matCellDef="let element">{{element.name}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="lastname">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>LASTNAME</th>
+        <td mat-cell *matCellDef="let element">{{element.lastname}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>EMAIL</th>
+        <td mat-cell *matCellDef="let element">{{element.email}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="progress">
+        <th mat-header-cell *matHeaderCellDef> Progress </th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-icon-button color="primary" (click)="redirectToDetails(element.uid)">
+            <mat-icon class="mat-18">bar_chart</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="group">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>GROUP</th>
+        <td mat-cell *matCellDef="let element">{{element.group}}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    </table>
+    <mat-paginator [pageSize]="5" [pageSizeOptions]="[1,5,10,25,50]"></mat-paginator>
+</mat-card>
+</div>

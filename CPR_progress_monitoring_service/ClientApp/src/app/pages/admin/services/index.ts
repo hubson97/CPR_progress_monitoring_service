@@ -1,1 +1,1 @@
-﻿
+export * from './admin.service';

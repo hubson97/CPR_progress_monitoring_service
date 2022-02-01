@@ -1,11 +1,38 @@
 <app-layout>
-
-  <mat-toolbar class="page-header" role="heading">
-    <h1>Instructor home</h1>
-  </mat-toolbar>
-
-  <app-daily-line-chart [dailyLineChartData]="dailyLineChartData$ | async"></app-daily-line-chart>
+  <mat-card>
 
 
-  <app-footer></app-footer>
+    <!--<div class="options-wrapper">
+      <div class="option">
+        <mat-form-field appearance="fill">
+          <mat-label>Group names</mat-label>
+          <mat-select>
+            <mat-option>ALL</mat-option>
+            <mat-option *ngFor="let group of groupNames" [value]="group.name">
+              {{group.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>-->
+
+    <mat-form-field appearance="fill">
+      <mat-label>Group names</mat-label>
+      <mat-select>
+        <mat-option>ALL</mat-option>
+        <mat-option *ngFor="let group of groupNames" [value]="group.name">
+          {{group.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <app-daily-line-chart [dailyLineChartData]="dailyLineChartData$ | async"></app-daily-line-chart>
+
+    <mat-card class="charts-content__chart_item">
+      <mat-card-title><p>Logging frequency</p></mat-card-title>
+      <app-users-exercise-frequency-heatmap-chart [usersExerciseFreqHeatmapChartData]="usersExerciseFreqHeatmapChartData$ | async"></app-users-exercise-frequency-heatmap-chart>
+    </mat-card>
+
+    <!--</div>-->
+    <app-footer></app-footer>
+  </mat-card>
 </app-layout>

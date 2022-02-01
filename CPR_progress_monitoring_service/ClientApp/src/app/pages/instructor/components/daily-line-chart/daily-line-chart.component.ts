@@ -77,30 +77,30 @@ export class DailyLineChartComponent implements OnInit, AfterViewInit {
           type: 'line',
           data: data.mobile,
         },
-        {
-          name: 'Desktop',
-          type: 'area',
-          data: data.desktop
-        },
+        //{
+        //  name: 'Desktop',
+        //  type: 'area',
+        //  data: data.desktop
+        //},
         {
           name: 'Tablet',
           type: 'line',
           data: data.tablet
         }
       ],
-      colors: [colors.BLUE, colors.LIGHT_BLUE, colors.YELLOW],
+      colors: [colors.BLUE, colors.YELLOW], //colors.LIGHT_BLUE, colors.YELLOW],
       chart: {
         toolbar: {
           show: false
         },
-        height: 350,
+        height: 300,
         width: '100%',
         type: 'line',
         stacked: true
       },
       stroke: {
-        width: [2, 0, 2],
-        curve: ['smooth', 'smooth', 'straight']
+        width: [2, 2], //0, 2],
+        curve: ['smooth', 'straight'] //'smooth', 'straight']
       },
       plotOptions: {
         bar: {

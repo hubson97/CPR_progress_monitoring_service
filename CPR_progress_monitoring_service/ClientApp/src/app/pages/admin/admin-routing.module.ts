@@ -10,12 +10,12 @@ const routes: Routes = [
     component: AdminUsersPageComponent
   },
   {
-    path: '',
+    path: 'home',
     component: AdminHomePageComponent
   },
   {
-    path: 'home',
-    redirectTo: ''
+    path: '',
+    redirectTo: 'home'
   },
 ];
 

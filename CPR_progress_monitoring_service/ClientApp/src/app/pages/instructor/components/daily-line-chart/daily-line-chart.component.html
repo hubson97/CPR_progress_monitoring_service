@@ -1,16 +1,16 @@
 <mat-card class="chart">
   <mat-card-title class="chart__header">
-    <p class="chart__title">Daily Line Chart</p>
+    <p class="chart__title">Students </p>
     <div class="chart-legend">
       <div class="chart-legend__item">
-        <div class="chart-legend__icon yellow"></div><span class="chart-legend__title">Tablet</span>
+        <div class="chart-legend__icon yellow"></div><span class="chart-legend__title">Frequency</span>
       </div>
       <div class="chart-legend__item">
-        <div class="chart-legend__icon blue"></div><span class="chart-legend__title">Mobile</span>
+        <div class="chart-legend__icon blue"></div><span class="chart-legend__title">Quality</span>
       </div>
-      <div class="chart-legend__item">
-        <div class="chart-legend__icon light-blue"></div><span class="chart-legend__title">Desktop</span>
-      </div>
+      <!--<div class="chart-legend__item">
+    <div class="chart-legend__icon light-blue"></div><span class="chart-legend__title">Effectiveness</span>
+  </div>-->
     </div>
 
     <mat-select class="chart-select" [(ngModel)]="selectedMatSelectValue" (selectionChange)="changedMatSelectionValue()">

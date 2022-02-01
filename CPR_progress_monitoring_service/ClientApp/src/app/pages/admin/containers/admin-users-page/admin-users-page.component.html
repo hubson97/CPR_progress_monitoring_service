@@ -1,7 +1,6 @@
 <app-layout>
 
-  <h1>Admin USERS</h1>
-
+  <app-users-list-table [usersByGroupData]="usersByGroupData$ | async" [groupsData]="groupsData$ | async"></app-users-list-table>
 
   <app-footer></app-footer>
 </app-layout>

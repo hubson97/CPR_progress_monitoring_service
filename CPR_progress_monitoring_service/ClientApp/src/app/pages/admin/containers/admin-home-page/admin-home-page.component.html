@@ -1,7 +1,10 @@
 <app-layout>
-  
-    <h1>Admin HOME</h1>
-  
+
+  <mat-card class="charts-content__chart_item">
+    <mat-card-title><p>Users logging frequency</p></mat-card-title>
+    <app-admin-users-loging-heatmap-chart [usersLogingHeatmapChartData]="usersLogingHeatmapChartData$ | async"></app-admin-users-loging-heatmap-chart>
+  </mat-card>
+
 
   <app-footer></app-footer>
 </app-layout>

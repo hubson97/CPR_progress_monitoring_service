@@ -1,0 +1,139 @@
+<app-layout>
+
+  <!--<form [formGroup]="settingsForm" (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input id="email" type="text" formControlName="email" />
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input id="password" type="password" formControlName="password" />
+    </div>
+    <div class="form-group">
+      <label for="role">Role</label>
+      <input id="role" type="text" formControlName="role" />
+    </div>
+    <div class="form-group">
+      <label for="group">Group</label>
+      <input id="group" type="text" formControlName="group" />
+    </div>
+
+    <button class="btn btn-success" type="submit">Submit</button>
+    <button class="btn btn-success" type="button">Cancel</button>
+
+  </form>
+
+  <form>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Favorite food</mat-label>
+      <input matInput placeholder="Ex. Pizza" value="Sushi">
+    </mat-form-field>
+
+
+  </form>-->
+  <!--<mat-card class="container">
+    <mat-card-title>Settings</mat-card-title>
+    <mat-card-content class="">
+      <form [formGroup]="form" (ngSubmit)="saveDetails(form)" autocomplete="off">
+
+
+          <mat-form-field appearance="legacy">
+            <mat-label>Email Address:</mat-label>
+            <input matInput type="email" formControlName="email" placeholder="Your email">
+            <mat-icon matSuffix>mail_outline</mat-icon>
+            <mat-hint>Input the fully qualified email address</mat-hint>
+            <mat-error *ngIf="(form.get('email')).errors?.required">Email is required</mat-error>
+            <mat-error *ngIf="(form.get('email')).errors?.pattern">Please enter valid email</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="standard">
+            <mat-label>Password </mat-label>
+            <input matInput [type]="flag ? 'password' : 'text'" placeholder="Enter your password"
+                   formControlName="password">
+            <mat-icon (click)="flag=!flag" matSuffix>{{ flag ? 'visibility' : 'visibility_off' }}</mat-icon>
+            <mat-error>Name is required</mat-error>
+            <mat-error *ngIf="(form.get('password')).errors?.minlength">
+              Please enter more than 6 character
+            </mat-error>
+          </mat-form-field>
+
+
+
+
+          <mat-form-field appearance="legacy">
+            <mat-label>Group</mat-label>
+            <mat-select>
+              <mat-option *ngFor="let group of groups" [value]="group.value">
+                {{group.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Role</mat-label>
+            <mat-select>
+              <mat-option *ngFor="let role of roles" [value]="role.value">
+                {{role.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        <div>
+          <button mat-flat-button color="primary" type="submit" [disabled]="!form.valid">Save</button>
+          <button mat-flat-button color="primary" >Cancel</button>
+        </div>
+
+      </form>
+    </mat-card-content>
+  </mat-card>-->
+
+  <mat-card class="container">
+    <form [formGroup]="form" (ngSubmit)="saveDetails(form)" autocomplete="off">
+      <ul class="flex-outer">
+        <!--<li>
+    <label for="first-name">First Name</label>
+    <input type="text" id="first-name" placeholder="Enter your first name here">
+  </li>
+  <li>
+    <label for="last-name">Last Name</label>
+    <input type="text" id="last-name" placeholder="Enter your last name here">
+  </li>-->
+        <li>
+          <p>Settings</p>
+          <button type="submit">Save</button>
+        </li>
+        <li>
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="Enter your email here">
+        </li>
+        <li>
+          <label for="password">New password</label>
+          <input type="password" id="password" placeholder="Enter new password">
+        </li>
+        <li>
+          <label for="password">Password repeat</label>
+          <input type="password" id="password" placeholder="Enter new password">
+        </li>
+        <li>
+          <label for="group">Group</label>
+          <select [disabled]="true">
+            <option *ngFor="let group of groups" [value]="group.value">{{group.viewValue}}</option>
+          </select>
+        </li>
+        <li>
+          <label for="role">Role</label>
+          <select [disabled]="true">
+            <option *ngFor="let role of roles" [value]="role.value">{{role.viewValue}}</option>
+          </select>
+        </li>
+        <li></li>
+        <!--<li>
+          <button type="submit">Submit</button>
+        </li>-->
+      </ul>
+    </form>
+  </mat-card>
+
+</app-layout>
+
+
